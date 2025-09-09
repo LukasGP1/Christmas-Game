@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] public PlayerManagerScript playerManager;
-    [SerializeField] public GameObject mainMenu;
-    [SerializeField] public GameObject inGameUI;
+    [SerializeField] public List<GameObject> mainMenu;
+    [SerializeField] public List<GameObject> inGameUI;
     [SerializeField] public TMP_InputField seedInputField;
     [SerializeField] public TMP_InputField levelCountInputField;
     [SerializeField] public TextMeshProUGUI invalidInputErrorText;
@@ -23,10 +24,10 @@ public class GameManagerScript : MonoBehaviour
     public void OpenMainMenu()
     {
         // Activate the main menu screen
-        mainMenu.SetActive(true);
+        foreach(GameObject item in mainMenu) item.SetActive(true);
 
         // Deactivate the other screens
-        inGameUI.SetActive(false);
+        foreach(GameObject item in inGameUI) item.SetActive(false);
         winScreen.SetActive(false);
 
         // Deactivate the player manager
@@ -84,10 +85,10 @@ public class GameManagerScript : MonoBehaviour
         generatedLevelParent = new GameObject("generatedLevel");
 
         // Deactivate the main menu screen
-        mainMenu.SetActive(false);
+        foreach(GameObject item in mainMenu) item.SetActive(false);
 
         // Activate the in Game UI
-        inGameUI.SetActive(true);
+        foreach(GameObject item in inGameUI) item.SetActive(true);
 
         // Reset the player manager
         playerManager.ResetVariables();

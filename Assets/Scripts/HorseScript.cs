@@ -62,4 +62,9 @@ public class HorseScript : MonoBehaviour
             GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<PlayerManagerScript>().Die();
         }
     }
+
+    public void SetFloorWidth(float value)
+    {
+        floorWidth = value;
+    }
 }

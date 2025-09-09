@@ -74,4 +74,9 @@ public class Rect
     {
         return new Vector3(dimensions.x, dimensions.y, 1);
     }
+
+    public float GetWidth()
+    {
+        return dimensions.x;
+    }
 }

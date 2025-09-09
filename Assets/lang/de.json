@@ -1,0 +1,26 @@
+{
+    "menu.main.game_name": "Spielname",
+    "menu.main.play_button": "Spielen",
+    "menu.main.seed_text": "Seed:",
+    "menu.main.level_count_text": "Level Anzahl:",
+    "menu.main.invalid_seed_warning": "Bitte gib eine ganze Zahl als Seed ein",
+    "menu.main.invalid_level_count_warning": "Bitte gib eine ganze Zahl größer als 0 als Level Anzahl ein",
+    "menu.main.invalid_seed_and_level_count_warning": "Bitte gib eine ganze Zahl als Seed und eine ganze Zahl größer als 0 als Level Anzahl ein",
+
+    "menu.level_done.text": "Level Geschafft",
+
+    "menu.win.text": "Alle Level Geschafft",
+    "menu.win.main_menu_button": "Hauptmenü",
+    
+    "menu.in_game.fart_bar": "Furz übrig:",
+    "menu.in_game.death_counter": "Tode:",
+    "menu.in_game.timer": "Sekunden",
+    "menu.in_game.water_bar": "Wasser übrig:",
+
+    "menu.escape.fart_volume": "Furz Lautstärke",
+    "menu.escape.water_shoot_volume": "Wasser Schieß Lautstärke",
+    "menu.escape.fire_extinguish_volume": "Feuer Lösch Lautstärke",
+    "menu.escape.death_volume": "Tod Lautstärke",
+    "menu.escape.win_volume": "Level beendet Lautstärke",
+    "menu.escape.continue_game_button": "Weiterspielen"
+}

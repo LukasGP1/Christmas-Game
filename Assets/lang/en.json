@@ -1,0 +1,26 @@
+{
+    "menu.main.game_name": "Gamename",
+    "menu.main.play_button": "Play",
+    "menu.main.seed_text": "Seed:",
+    "menu.main.level_count_text": "Level Count:",
+    "menu.main.invalid_seed_warning": "Please put in an integer as seed",
+    "menu.main.invalid_level_count_warning": "Please put in an integer bigger than 0 as level count",
+    "menu.main.invalid_seed_and_level_count_warning": "Please put in an integer as seed and an integer bigger than 0 as level count",
+
+    "menu.level_done.text": "Level Completed",
+
+    "menu.win.text": "All Levels Completed",
+    "menu.win.main_menu_button": "Main Menu",
+    
+    "menu.in_game.fart_bar": "Fart left:",
+    "menu.in_game.death_counter": "Deaths:",
+    "menu.in_game.timer": "Seconds",
+    "menu.in_game.water_bar": "Water left:",
+
+    "menu.escape.fart_volume": "Fart Volume",
+    "menu.escape.water_shoot_volume": "Water Shoot Volume",
+    "menu.escape.fire_extinguish_volume": "Fire Extinguish Volume",
+    "menu.escape.death_volume": "Death Volume",
+    "menu.escape.win_volume": "Level Completed Volume",
+    "menu.escape.continue_game_button": "Continue"
+}

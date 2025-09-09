@@ -223,5 +223,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorWidth: 13
-  moveSpeed: 1
+  moveSpeed: 3
   solidBoxCollider: {fileID: 8634479013625364953}

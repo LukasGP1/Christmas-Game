@@ -9,6 +9,7 @@ public class LevelGeneratorScript : MonoBehaviour
     [SerializeField] public GameObject fire;
     [SerializeField] public GameObject water;
     [SerializeField] public GameObject horse;
+    [SerializeField] public GameObject window;
 
     public bool RandomChance(System.Random random, float chance)
     {
@@ -54,14 +55,17 @@ public class LevelGeneratorScript : MonoBehaviour
             Transform instantiatedFartLoadingZone = Instantiate(fartLoadingZone, fartRect.GetCenter(), new Quaternion(), parent).transform;
             instantiatedFartLoadingZone.localScale = fartRect.GetDimensions();
 
-            // If it's not the starting tile or the end tile, try to add accessories
+            // If it's not the starting tile or the end tile, try to add an accessorie
             if (i != 0 && i != tileCount + 1)
             {
                 // 20% chance to add a fire
                 if (RandomChance(random, 20)) Instantiate(fire, new Vector3(rect.GetCenter().x, rect.GetTopY(), 0), new Quaternion(), parent);
 
                 // If no fire is added, there is a 20% chance to add a horse
-                else if (RandomChance(random, 20)) Instantiate(horse, new Vector3(rect.GetCenter().x, rect.GetTopY() + 1, 0), new Quaternion(), parent).GetComponent<HorseScript>().SetFloorWidth(rect.GetWidth() - 0.5f);
+                else if (RandomChance(random, 25)) Instantiate(horse, new Vector3(rect.GetCenter().x, rect.GetTopY() + 1, 0), new Quaternion(), parent).GetComponent<HorseScript>().SetFloorWidth(rect.GetWidth() - 0.5f);
+
+                // If there is neither a horse nor a fire added, there is a 20% chance to add a window
+                else if (RandomChance(random, 33)) Instantiate(window, new Vector3(rect.GetCenter().x, rect.GetTopY() + 5, 0), new Quaternion(), parent);
             }
 
             // Instantiate the last tile (you need to adjust the height because of its different shape)

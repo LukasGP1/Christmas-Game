@@ -28,23 +28,27 @@ public class PlayerMoveScript : MonoBehaviour
 
     void Start()
     {
-        // Get the Rigidbody2D
-        myRigidbody = GetComponent<Rigidbody2D>();
+        // Don't call the rest of the method if there is no player manager
+        if (GameObject.FindGameObjectWithTag("PlayerManager") != null)
+        {
+            // Get the Rigidbody2D
+            myRigidbody = GetComponent<Rigidbody2D>();
 
-        // Get the particle system
-        myParticleSystem = transform.GetComponent<ParticleSystem>();
+            // Get the particle system
+            myParticleSystem = transform.GetComponent<ParticleSystem>();
 
-        // Get the player manager
-        playerManager = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<PlayerManagerScript>();
+            // Get the player manager
+            playerManager = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<PlayerManagerScript>();
 
-        // Reset the variables
-        isFarting = false;
-        canMove = true;
-        inWater = false;
-        secondsSinceLastWaterShot = waterShootCooldown;
-        fartTimeLeft = maxFartTime;
-        lookDirection = LookDirection.RIGHT;
-        waterShotsLeft = 0;
+            // Reset the variables
+            isFarting = false;
+            canMove = true;
+            inWater = false;
+            secondsSinceLastWaterShot = waterShootCooldown;
+            fartTimeLeft = maxFartTime;
+            lookDirection = LookDirection.RIGHT;
+            waterShotsLeft = 0;
+        }
     }
 
     void Update()

@@ -28,7 +28,6 @@ public class PlayerManagerScript : MonoBehaviour
     [SerializeField] public GameManagerScript gameManager;
     [SerializeField] public TranslationProvider translationProvider;
     [SerializeField] public Slider waterBar;
-    private bool callStartMethod = true;
     private int levelCount;
     private int seed;
     private LevelGeneratorScript levelGenerator;
@@ -49,39 +48,49 @@ public class PlayerManagerScript : MonoBehaviour
 
     void Start()
     {
-        // Call the start only if the player manager is activated for the first time
-        if (callStartMethod)
-        {
-            // Reset the variables
-            ResetVariables();
+        // Deactivate in game GUI elements
+        levelDoneText.SetActive(false);
+        winScreen.SetActive(false);
+        pauseMenuUI.SetActive(false);
+        pauseMenuOpen = false;
 
-            // Reset the volume values
-            fartVolume = 1f;
-            waterShootVolume = 1f;
-            fireExtinguishVolume = 1f;
-            deathVolume = 1f;
-            winVolume = 1f;
+        // Reset player related variables
+        deaths = 0;
+        levelIndex = 0;
+        time = 0;
+        seed = 0;
+        levelCount = 3;
+        timeSinceLastFartSound = fartSoundCooldown;
 
-            // Get the level generator
-            levelGenerator = GetComponent<LevelGeneratorScript>();
+        // Mark the timer as running
+        timerRunning = true;
 
-            // Set the max and default values of the sliders
-            fartBar.maxValue = instantiatedPlayer.GetComponent<PlayerMoveScript>().maxFartTime;
-            waterBar.maxValue = instantiatedPlayer.GetComponent<PlayerMoveScript>().maxWaterShots;
-            fartVolumeSlider.maxValue = 1f;
-            waterShootVolumeSlider.maxValue = 1f;
-            fireExtinguishVolumeSlider.maxValue = 1f;
-            deathVolumeSlider.maxValue = 1f;
-            winVolumeSlider.maxValue = 1f;
-            fartVolumeSlider.value = fartVolume;
-            waterShootVolumeSlider.value = waterShootVolume;
-            fireExtinguishVolumeSlider.value = fireExtinguishVolume;
-            deathVolumeSlider.value = deathVolume;
-            winVolumeSlider.value = winVolume;
+        // Reset the projectile list
+        waterProjectiles = new List<GameObject>();
 
-            // Signify that the start method should not be called anymore
-            callStartMethod = false;
-        }
+        // Reset the volume values
+        fartVolume = 1f;
+        waterShootVolume = 1f;
+        fireExtinguishVolume = 1f;
+        deathVolume = 1f;
+        winVolume = 1f;
+
+        // Get the level generator
+        levelGenerator = GetComponent<LevelGeneratorScript>();
+
+        // Set the max and default values of the sliders
+        fartBar.maxValue = player.GetComponent<PlayerMoveScript>().maxFartTime;
+        waterBar.maxValue = player.GetComponent<PlayerMoveScript>().maxWaterShots;
+        fartVolumeSlider.maxValue = 1f;
+        waterShootVolumeSlider.maxValue = 1f;
+        fireExtinguishVolumeSlider.maxValue = 1f;
+        deathVolumeSlider.maxValue = 1f;
+        winVolumeSlider.maxValue = 1f;
+        fartVolumeSlider.value = fartVolume;
+        waterShootVolumeSlider.value = waterShootVolume;
+        fireExtinguishVolumeSlider.value = fireExtinguishVolume;
+        deathVolumeSlider.value = deathVolume;
+        winVolumeSlider.value = winVolume;
     }
 
     public void ResetVariables()
@@ -111,6 +120,9 @@ public class PlayerManagerScript : MonoBehaviour
 
         // Create a new player
         CreatePlayer();
+
+        // Update the death counter text
+        deathCounter.text = TranslationProvider.GetTranslationWithoutLanguage("menu.in_game.death_counter", translationProvider) + " " + deaths;
     }
 
     void Update()

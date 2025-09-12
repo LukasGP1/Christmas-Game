@@ -131,7 +131,7 @@ public class PlayerMoveScript : MonoBehaviour
         // If the player enters a fart loading zone set the isInFartLoadingZone Variable to true
         if (collision.CompareTag("FartLoadingZone")) isInFartLoadingZone = true;
 
-        // If the player enters a death plane, ask the player manager to die
+        // If the player enters a death plane or a closet door, ask the player manager to die
         else if (collision.CompareTag("DeathPlane")) playerManager.Die();
 
         // If the player enters a win zone, ask the player manager to win
@@ -145,6 +145,12 @@ public class PlayerMoveScript : MonoBehaviour
             myRigidbody.gravityScale /= waterSlowDownFactor;
             waterShotsLeft = maxWaterShots;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If the player collides with a closet door, ask the player manager to die
+        if (collision.collider.CompareTag("ClosetDoor")) playerManager.Die();
     }
 
     void OnTriggerExit2D(Collider2D collision)

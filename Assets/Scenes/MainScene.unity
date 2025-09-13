@@ -2290,6 +2290,7 @@ MonoBehaviour:
   fire: {fileID: 1355289079085977420, guid: c36d36829aaecf047bf275c56f57ee19, type: 3}
   water: {fileID: 8764816539150367639, guid: e464efa079976dd40bc5ae2fa60d65b1, type: 3}
   horse: {fileID: 4229913049462953757, guid: 4154a41657c1bd143b396e5142513402, type: 3}
+  window: {fileID: 6292321822604228158, guid: 561c7f95646d34b4dabcb5dc4fecb078, type: 3}
 --- !u!1 &466066452
 GameObject:
   m_ObjectHideFlags: 0

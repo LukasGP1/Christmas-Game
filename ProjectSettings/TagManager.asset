@@ -10,6 +10,7 @@ TagManager:
   - WinZone
   - WaterProjectile
   - Water
+  - ClosetDoor
   layers:
   - Default
   - TransparentFX

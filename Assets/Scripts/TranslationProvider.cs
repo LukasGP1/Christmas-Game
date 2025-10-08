@@ -7,8 +7,8 @@ using System;
 
 public class TranslationProvider : MonoBehaviour
 {
-    [SerializeField] public TMP_Dropdown languageSelector;
-    [SerializeField] public TranslatableComponents translatableComponents;
+    public TMP_Dropdown languageSelector;
+    public TranslatableComponents translatableComponents;
     private List<string> languageNames;
 
     [Serializable]

@@ -4,14 +4,14 @@ public class PlayerMoveScript : MonoBehaviour
 {
     public enum LookDirection { RIGHT, LEFT }
 
-    [SerializeField] public float moveSpeed;
-    [SerializeField] public float maxFartTime;
-    [SerializeField] public Sprite normalSprite;
-    [SerializeField] public Sprite fartingSprite;
-    [SerializeField] public GameObject waterProjectile;
-    [SerializeField] public float waterShootCooldown;
-    [SerializeField] public float waterSlowDownFactor;
-    [SerializeField] public int maxWaterShots;
+    public float moveSpeed;
+    public float maxFartTime;
+    public Sprite normalSprite;
+    public Sprite fartingSprite;
+    public GameObject waterProjectile;
+    public float waterShootCooldown;
+    public float waterSlowDownFactor;
+    public int maxWaterShots;
     private Vector3 storedVelocity;
     private float secondsSinceLastWaterShot;
     private LookDirection lookDirection;

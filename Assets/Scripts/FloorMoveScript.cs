@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FloorMoveScript : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] float maxDistance;
+    float speed;
+    float maxDistance;
     private float originalYPos;
     private float minYPos;
     private float t;

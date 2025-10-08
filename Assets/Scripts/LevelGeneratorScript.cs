@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class LevelGeneratorScript : MonoBehaviour
 {
-    [SerializeField] public GameObject floor;
-    [SerializeField] public GameObject fartLoadingZone;
-    [SerializeField] public GameObject levelEnd;
-    [SerializeField] public GameObject deathPlane;
-    [SerializeField] public GameObject fire;
-    [SerializeField] public GameObject water;
-    [SerializeField] public GameObject horse;
-    [SerializeField] public GameObject window;
+    public GameObject floor;
+    public GameObject fartLoadingZone;
+    public GameObject levelEnd;
+    public GameObject deathPlane;
+    public GameObject fire;
+    public GameObject water;
+    public GameObject horse;
+    public GameObject window;
 
     public bool RandomChance(System.Random random, float chance)
     {

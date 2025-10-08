@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    [SerializeField] public PlayerManagerScript playerManager;
-    [SerializeField] public List<GameObject> mainMenu;
-    [SerializeField] public List<GameObject> inGameUI;
-    [SerializeField] public TMP_InputField seedInputField;
-    [SerializeField] public TMP_InputField levelCountInputField;
-    [SerializeField] public TextMeshProUGUI invalidInputErrorText;
-    [SerializeField] public Camera mainCam;
-    [SerializeField] public GameObject winScreen;
-    [SerializeField] public TranslationProvider translationProvider;
+    public PlayerManagerScript playerManager;
+    public List<GameObject> mainMenu;
+    public List<GameObject> inGameUI;
+    public TMP_InputField seedInputField;
+    public TMP_InputField levelCountInputField;
+    public TextMeshProUGUI invalidInputErrorText;
+    public Camera mainCam;
+    public GameObject winScreen;
+    public TranslationProvider translationProvider;
     private GameObject generatedLevelParent;
 
     void Start()

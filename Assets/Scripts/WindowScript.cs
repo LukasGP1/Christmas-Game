@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class WindowScript : MonoBehaviour
 {
-    [SerializeField] public GameObject closetDoor;
-    [SerializeField] public float dropInterval;
+    public GameObject closetDoor;
+    public float dropInterval;
     private GameObject instantiatedDoor;
     private float timeSinceLastDrop;
 

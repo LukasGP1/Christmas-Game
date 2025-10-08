@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FireScript : MonoBehaviour
 {
-    [SerializeField] public int maxHealth;
+    public int maxHealth;
     private int health;
     private Vector3 originalScale;
     public PlayerManagerScript playerManager;

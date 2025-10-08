@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class HorseScript : MonoBehaviour
 {
-    [SerializeField] public float floorWidth;
-    [SerializeField] public float moveSpeed;
-    [SerializeField] public BoxCollider2D solidBoxCollider;
+    public float floorWidth;
+    public float moveSpeed;
+    public BoxCollider2D solidBoxCollider;
     private float originalX;
     private MovingDirection movingDirection;
     private SpriteRenderer spriteRenderer;

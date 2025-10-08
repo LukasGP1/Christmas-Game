@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class WaterProjectileMoveScript : MonoBehaviour
 {
-    [SerializeField] public float moveSpeed;
-    [SerializeField] public float maxTime;
+    public float moveSpeed;
+    public float maxTime;
     private PlayerManagerScript playerManager;
     private PlayerMoveScript.LookDirection direction = PlayerMoveScript.LookDirection.RIGHT;
     private int listIndex;

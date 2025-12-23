@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 public class PlayerMoveScript : MonoBehaviour
@@ -11,11 +10,14 @@ public class PlayerMoveScript : MonoBehaviour
     public Sprite normalSprite;
     public Sprite fartingSprite;
     public GameObject waterProjectile;
+    public GameObject fireProjectile;
     public float waterShootCooldown;
+    public float fireShootCooldown;
     public float waterSlowDownFactor;
     public int maxWaterShots;
     private Vector3 storedVelocity;
     private float secondsSinceLastWaterShot;
+    private float secondsSinceLastFireShot;
     private LookDirection lookDirection;
     private float fartTimeLeft;
     private Rigidbody2D myRigidbody;
@@ -47,6 +49,7 @@ public class PlayerMoveScript : MonoBehaviour
             canMove = true;
             inWater = false;
             secondsSinceLastWaterShot = waterShootCooldown;
+            secondsSinceLastFireShot = fireShootCooldown;
             fartTimeLeft = maxFartTime;
             lookDirection = LookDirection.RIGHT;
             waterShotsLeft = 0;
@@ -89,6 +92,9 @@ public class PlayerMoveScript : MonoBehaviour
         // Increase the time since the last water shot (FixedUpdate() is called once every 0.02s, so the time is in seconds)
         secondsSinceLastWaterShot += 0.02f;
 
+        // Increase the time since the last fire shot (FixedUpdate() is called once every 0.02s, so the time is in seconds)
+        secondsSinceLastFireShot += 0.02f;
+
         // Set the x velocity based on the input, the movement speed and whether the player is in water
         if (canMove) myRigidbody.linearVelocity = new Vector2(horizontalInput * moveSpeed / (inWater ? waterSlowDownFactor : 1), myRigidbody.linearVelocity.y);
 
@@ -125,6 +131,25 @@ public class PlayerMoveScript : MonoBehaviour
 
             // Decrease the water shots left by 1
             waterShotsLeft--;
+        }
+
+        // If the player can move, the E key is pressed and more time than the cooldown has passed since the last shot
+        if (canMove && Input.GetKey(KeyCode.E) && secondsSinceLastFireShot >= fireShootCooldown)
+        {
+            // Instantiate a projectile at the player's position
+            GameObject instantiatedFireProjectile = Instantiate(fireProjectile, transform.position, new Quaternion());
+
+            // Set the listIndex of the projectile to its future index in the projectile list
+            instantiatedFireProjectile.GetComponent<WaterProjectileMoveScript>().SetListIndex(playerManager.GetWaterProjectiles().Count);
+
+            // Set the direction of the projectile to the look direction of the player
+            instantiatedFireProjectile.GetComponent<WaterProjectileMoveScript>().SetDirection(lookDirection);
+
+            // Add the projectile to the player manager's list of projectiles
+            playerManager.AddProjectile(instantiatedFireProjectile);
+
+            // Reset the time since the last shot
+            secondsSinceLastFireShot = 0;
         }
     }
 

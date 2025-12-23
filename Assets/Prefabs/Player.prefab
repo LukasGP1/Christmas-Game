@@ -4905,7 +4905,9 @@ MonoBehaviour:
   normalSprite: {fileID: 7417289294351680769, guid: 0e41f6e2e6aed384aa1d04067be40209, type: 3}
   fartingSprite: {fileID: -176372567220685092, guid: 8de5303bdde5ea4479f5e2293a9fb2ca, type: 3}
   waterProjectile: {fileID: 6637138597981107427, guid: 783a888d606bab84a9c9e13f55a74ab1, type: 3}
+  fireProjectile: {fileID: 6637138597981107427, guid: 333674a64cf5b2c4e920140d74922e07, type: 3}
   waterShootCooldown: 0.5
+  fireShootCooldown: 0.5
   waterSlowDownFactor: 5
   maxWaterShots: 5
 --- !u!199 &697309584334039263

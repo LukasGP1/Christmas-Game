@@ -12,6 +12,7 @@ TagManager:
   - Water
   - ClosetDoor
   - GuardDeathPlane
+  - FireProjectile
   layers:
   - Default
   - TransparentFX

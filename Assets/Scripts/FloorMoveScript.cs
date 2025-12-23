@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class FloorMoveScript : MonoBehaviour
 {
-    float speed;
-    float maxDistance;
+    public float speed;
+    public float maxDistance;
     private float originalYPos;
     private float minYPos;
     private float t;
@@ -16,7 +17,7 @@ public class FloorMoveScript : MonoBehaviour
         minYPos = originalYPos - maxDistance;
 
         // Calculate a random phase offset depending on the x position, so Fartloading zones and fires have the same offset as their respective floors
-        t = ((transform.position.x * 96349826) % (Mathf.PI * 2)) / speed;
+        t = transform.position.x * 963 % (Mathf.PI * 2) / speed;
     }
 
     void FixedUpdate()

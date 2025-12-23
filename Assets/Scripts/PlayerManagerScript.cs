@@ -19,6 +19,7 @@ public class PlayerManagerScript : MonoBehaviour
     public AudioClip fireExtinguishSound;
     public AudioClip deathSound;
     public AudioClip winSound;
+    public AudioClip guardTouchSound;
     public GameObject pauseMenuUI;
     public Slider fartVolumeSlider;
     public Slider waterShootVolumeSlider;
@@ -182,7 +183,7 @@ public class PlayerManagerScript : MonoBehaviour
 
     private void OpenPauseMenu()
     {
-        // Ask the playerr to stop its movement
+        // Ask the player to stop its movement
         instantiatedPlayer.GetComponent<PlayerMoveScript>().StopMovement();
 
         // Stop the timer
@@ -308,6 +309,12 @@ public class PlayerManagerScript : MonoBehaviour
         AudioSource.PlayClipAtPoint(fireExtinguishSound, pos, fireExtinguishVolume);
     }
 
+    public void PlayGuardTouchSound(Vector3 pos)
+    {
+        // Play the sound
+        AudioSource.PlayClipAtPoint(guardTouchSound, pos, 1f);
+    }
+
     public List<GameObject> GetWaterProjectiles()
     {
         return waterProjectiles;
@@ -341,5 +348,10 @@ public class PlayerManagerScript : MonoBehaviour
     public void SetGeneratedLevelParent(GameObject gameObject)
     {
         generatedLevelParent = gameObject;
+    }
+
+    public bool IsTimerRunning()
+    {
+        return timerRunning;
     }
 }

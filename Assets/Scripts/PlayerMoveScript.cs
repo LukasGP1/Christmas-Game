@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerMoveScript : MonoBehaviour
@@ -145,6 +147,26 @@ public class PlayerMoveScript : MonoBehaviour
             myRigidbody.gravityScale /= waterSlowDownFactor;
             waterShotsLeft = maxWaterShots;
         }
+        // Kill the Player when touching a guard
+        else if (collision.CompareTag("GuardDeathPlane"))
+        {
+            StartCoroutine(KillWhenTouchedGuard());
+        }
+    }
+
+    IEnumerator KillWhenTouchedGuard()
+    {
+        // Stop Player Movement
+        StopMovement();
+
+        // Play the guard touch sound
+        playerManager.PlayGuardTouchSound(transform.position);
+
+        // Wait for two seconds
+        yield return new WaitForSeconds(1.4f);
+
+        // Kill the Player
+        playerManager.Die();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
